@@ -6,6 +6,11 @@ public class Collectible : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
+        Health health = other.GetComponent<Health>(); //The other collider that produced the triggering. The thing that collided with me
+        if(health != null) //Whoever entered triggerfield have a health component or not check.
+        {
+            health.IncreaseHealth(5);
+            Destroy(gameObject);
+        }
     }
 }
