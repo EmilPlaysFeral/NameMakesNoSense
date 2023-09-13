@@ -22,4 +22,9 @@ public class Health : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public float GetCurrentHealth()
+    {
+        return currentHealth;
+    }
 }
