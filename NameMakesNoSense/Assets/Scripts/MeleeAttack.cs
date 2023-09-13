@@ -34,12 +34,12 @@ public class MeleeAttack : MonoBehaviour
             }
     }
 
-    private void MultiAttack() //Funkar inte
+    private void MultiAttack() //Funkar inte, detta är självmord just nu
     {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackRadius);
-        foreach(Collider hitCollider in hitColliders)
+        foreach (Collider hitCollider in hitColliders)
         {
-            if(hitCollider.GetComponent<Health>() != null)
+            if (hitCollider.GetComponent<Health>() != null)
             {
                 Health health = hitCollider.GetComponent<Health>();
                 health.TakeDamage(10);
