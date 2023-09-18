@@ -17,9 +17,9 @@ public class HealthGenerator : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
-            Vector3 randomPosition = new Vector3(Random.Range(-10, 10), 1, 10); //Oklar kod på slutet i RandomRange
+            Vector3 randomPosition = new Vector3(Random.Range(-10, 10), 1, Random.Range(-10, 10)); //Random position
 
-            Instantiate(healthPrefab, randomPosition, Quaternion.identity); //What are you creating, where are you putting it, what direction last one I think?
+            Instantiate(healthPrefab, randomPosition, Quaternion.identity); //What are you creating, where are you putting it, and what rotation
         }
     }
 }
