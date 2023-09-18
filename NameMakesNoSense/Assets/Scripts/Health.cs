@@ -19,6 +19,11 @@ public class Health : MonoBehaviour
         Debug.LogError(currentHealth);
         if(currentHealth <= 0)
         {
+            if(GetComponent<EnemyPatrol>() != null)
+            {
+                //this means that this health component belongs to an enemy, so I can increase the death counter
+                EnemyManager.GetInstance().IncreaseDeadEnemies(); //we obtain the singleton instance and have access to its functions without knowing the object itself
+            }
             Destroy(gameObject);
         }
     }

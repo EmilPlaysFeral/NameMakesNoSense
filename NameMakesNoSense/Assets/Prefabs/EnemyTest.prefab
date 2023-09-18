@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 9017194288042415695}
   - component: {fileID: 7328273742700745320}
   - component: {fileID: 239214852462175215}
+  - component: {fileID: 4835071638002189755}
   m_Layer: 0
   m_Name: EnemyTest
   m_TagString: Untagged
@@ -190,6 +191,21 @@ MonoBehaviour:
   enemyAgent: {fileID: 7328273742700745320}
   position1: {fileID: 149925854079852915}
   position2: {fileID: 6087531381525932620}
+--- !u!114 &4835071638002189755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3770919752294328057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9da9ef447e1a7c43b7bf8a16703dbb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  navMeshAgent: {fileID: 7328273742700745320}
+  meshRenderer: {fileID: 840717472475217834}
+  aggroColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &7916380267372997992
 GameObject:
   m_ObjectHideFlags: 0
