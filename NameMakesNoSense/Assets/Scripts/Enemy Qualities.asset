@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44bc469bf65b0334491b3d4cfc8a58f0, type: 3}
   m_Name: Enemy Qualities
   m_EditorClassIdentifier: 
-  regularSpeed: 2
-  aggroSpeed: 5
+  regularSpeed: 5
+  aggroSpeed: 8
   aggroColor: {r: 1, g: 0, b: 0.8427868, a: 0}
