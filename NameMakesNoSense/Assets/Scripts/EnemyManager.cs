@@ -7,11 +7,13 @@ public class EnemyManager : MonoBehaviour //Singleton
     private static EnemyManager instance; //Singleton
     private int totalEnemies;
     private int deadEnemies;
-    [SerializeField] private float aggroThreshold = 0.8f;   
+    [SerializeField] private float aggroThreshold = 0.5f;   
 
     public delegate void EnemyEvents(); 
     public static EnemyEvents ThresholdReached; //First event created
     private bool thresholdHasReached = false;
+
+    public static EnemyEvents PlayerWonGame;
 
     private void Awake()
     {
@@ -45,6 +47,11 @@ public class EnemyManager : MonoBehaviour //Singleton
         {
             thresholdHasReached = true;
             ThresholdReached();
+        }
+
+        if(deadEnemies == totalEnemies)
+        {
+            PlayerWonGame();
         }
     }
 

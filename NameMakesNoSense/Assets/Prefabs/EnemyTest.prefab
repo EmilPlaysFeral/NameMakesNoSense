@@ -205,7 +205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 7328273742700745320}
   meshRenderer: {fileID: 840717472475217834}
-  aggroColor: {r: 0, g: 0, b: 0, a: 0}
+  enemyQualities: {fileID: 11400000, guid: 3bf3fd01c213bb945b35d2fa8def09a7, type: 2}
 --- !u!1 &7916380267372997992
 GameObject:
   m_ObjectHideFlags: 0

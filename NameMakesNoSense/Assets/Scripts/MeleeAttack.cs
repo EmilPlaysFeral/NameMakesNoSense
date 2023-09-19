@@ -8,12 +8,12 @@ public class MeleeAttack : MonoBehaviour
 
    private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             MultiAttack();
         }
 
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetMouseButtonDown(0))
         {
             SingleAttack();
         }
