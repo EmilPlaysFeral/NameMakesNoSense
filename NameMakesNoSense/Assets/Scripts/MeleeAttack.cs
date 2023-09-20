@@ -5,6 +5,10 @@ using UnityEngine;
 public class MeleeAttack : MonoBehaviour
 {
     [SerializeField] private float attackRadius;
+    [SerializeField] private GameObject singRay; //weapon1
+    [SerializeField] private GameObject singRay2; //weapon2
+    [SerializeField] private AudioSource voice;
+    [SerializeField] private AudioClip voiceClip;
 
    private void Update()
     {
@@ -16,6 +20,13 @@ public class MeleeAttack : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             SingleAttack();
+            if (!singRay.activeInHierarchy)
+            {
+                StartCoroutine(ShowRay());
+                //voice.PlayOneShot(voiceClip); //Trigger the soundeffect once while showing the ray
+            }
+            //voice.Play(); //For ambience in new areas for example
+            //voice.Pause(); //For ambience
         }
     }
 
@@ -44,6 +55,18 @@ public class MeleeAttack : MonoBehaviour
                 Health health = hitCollider.GetComponent<Health>();
                 health.TakeDamage(10);
             }
+        }
+    }
+
+    private IEnumerator ShowRay()
+    {
+        if (!singRay.activeInHierarchy)
+        {
+        singRay.SetActive(true);
+        singRay2.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        singRay.SetActive(false);
+        singRay2.SetActive(false);
         }
     }
 

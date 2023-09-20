@@ -63,6 +63,5 @@ public class EnemyManager : MonoBehaviour //Singleton
     public int GetTotalEnemies()
     {
         return totalEnemies;
-    }
-    
+    }  
 }
