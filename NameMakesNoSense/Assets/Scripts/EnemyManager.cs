@@ -43,7 +43,8 @@ public class EnemyManager : MonoBehaviour //Singleton
     public void IncreaseDeadEnemies()
     {
         deadEnemies++;
-        if(deadEnemies / totalEnemies > aggroThreshold && !thresholdHasReached)
+
+        if(GetKillPercentage() >= aggroThreshold && !thresholdHasReached) //KANSKE MED ETT &
         {
             thresholdHasReached = true;
             ThresholdReached();
@@ -64,4 +65,9 @@ public class EnemyManager : MonoBehaviour //Singleton
     {
         return totalEnemies;
     }  
+
+    public float GetKillPercentage()
+    {
+        return ((float)deadEnemies / (float)totalEnemies);
+    }
 }

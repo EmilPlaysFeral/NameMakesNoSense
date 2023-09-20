@@ -15,3 +15,4 @@ MonoBehaviour:
   regularSpeed: 5
   aggroSpeed: 8
   aggroColor: {r: 1, g: 0, b: 0.8427868, a: 0}
+  damage: 25

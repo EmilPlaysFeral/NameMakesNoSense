@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Rendering;
 
 public class Enemy : MonoBehaviour
 {
@@ -9,18 +10,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] private MeshRenderer meshRenderer;
     //[SerializeField] private Color aggroColor;
     [SerializeField] private EnemyQualities enemyQualities;
-    [SerializeField] private BoxCollider damageZone;
 
     void Start()
     {
         navMeshAgent.speed = enemyQualities.GetRegularSpeed();
         EnemyManager.ThresholdReached += GoAggro; //Subscribing to the event
-    }
-
-    private void Update()
-    {
-
-        Debug.Log("Damage Player");
     }
 
     private void OnDestroy()
@@ -35,5 +29,19 @@ public class Enemy : MonoBehaviour
         //meshRenderer.material.color = aggroColor; //change color of enemy
         meshRenderer.material.color = enemyQualities.GetAggroColor();
         EnemyManager.ThresholdReached -= GoAggro; //Unsubscribing to the event
+    }
+
+    private void OnTriggerEnter(Collider collision) //Astrid GOAT kod LETS GOOOO!!!!!
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log(collision);
+            Health health = collision.GetComponent<Health>();
+            if (health != null) //Checking if it exists
+            {
+                health.TakeDamage(enemyQualities.GetDamage());
+                Debug.Log(health);
+            }
+        }
     }
 }

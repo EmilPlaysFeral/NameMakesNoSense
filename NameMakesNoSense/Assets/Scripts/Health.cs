@@ -26,6 +26,16 @@ public class Health : MonoBehaviour
             }
             Destroy(gameObject);
         }
+
+        if (currentHealth <= 0)
+        {
+            if (GetComponent<PlayerMovementTestScript>() != null)
+            {
+                //this means that this health component belongs to the player
+                EnemyManager.GetInstance().IncreaseDeadEnemies(); //we obtain the singleton instance and have access to its functions without knowing the object itself
+            }
+            Destroy(gameObject);
+        }
     }
 
     public float GetCurrentHealth()

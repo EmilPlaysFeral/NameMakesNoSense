@@ -8,6 +8,7 @@ public class EnemyQualities : ScriptableObject //ScriptableObject
     [SerializeField] private float regularSpeed;
     [SerializeField] private float aggroSpeed;
     [SerializeField] private Color aggroColor;
+    [SerializeField] private float damage;
 
     public float GetRegularSpeed()
     {
@@ -22,5 +23,10 @@ public class EnemyQualities : ScriptableObject //ScriptableObject
     public Color GetAggroColor()
     {
         return aggroColor;
+    }
+
+    public float GetDamage()
+    {
+        return damage;
     }
 }
