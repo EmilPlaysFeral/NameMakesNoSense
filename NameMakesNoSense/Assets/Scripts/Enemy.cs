@@ -9,11 +9,18 @@ public class Enemy : MonoBehaviour
     [SerializeField] private MeshRenderer meshRenderer;
     //[SerializeField] private Color aggroColor;
     [SerializeField] private EnemyQualities enemyQualities;
+    [SerializeField] private BoxCollider damageZone;
 
     void Start()
     {
         navMeshAgent.speed = enemyQualities.GetRegularSpeed();
         EnemyManager.ThresholdReached += GoAggro; //Subscribing to the event
+    }
+
+    private void Update()
+    {
+
+        Debug.Log("Damage Player");
     }
 
     private void OnDestroy()
