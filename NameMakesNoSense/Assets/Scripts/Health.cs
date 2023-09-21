@@ -6,8 +6,11 @@ public class Health : MonoBehaviour
 {
     private float currentHealth = 100f;
 
+    //[SerializeField] public Transform respawnPoint;
+    //[SerializeField] public GameObject player;
+
     // Start is called before the first frame update
-    
+
     public void IncreaseHealth(float healthIncrease)
     {
         currentHealth += healthIncrease;
@@ -24,17 +27,14 @@ public class Health : MonoBehaviour
                 //this means that this health component belongs to an enemy, so I can increase the death counter
                 EnemyManager.GetInstance().IncreaseDeadEnemies(); //we obtain the singleton instance and have access to its functions without knowing the object itself
             }
-            Destroy(gameObject);
-        }
-
-        if (currentHealth <= 0)
-        {
-            if (GetComponent<PlayerMovementTestScript>() != null)
+            if (CompareTag("Player")) //Om spelaren dör
             {
-                //this means that this health component belongs to the player
-                EnemyManager.GetInstance().IncreaseDeadEnemies(); //we obtain the singleton instance and have access to its functions without knowing the object itself
+                Debug.Log("Spelaren dog");
+                //PlayerDies();
+            }else
+            {
+                Destroy(gameObject); //Om fienden dör, förstår objektet
             }
-            Destroy(gameObject);
         }
     }
 
@@ -42,4 +42,26 @@ public class Health : MonoBehaviour
     {
         return currentHealth;
     }
+    /*
+    public void PlayerDies()
+    {
+        //Debug.Log("Spelaren dör");
+        //Sätt positionen på spelaren till en RespawnPoint
+        //player.transform.position = respawnPoint.transform.position;
+        //currentHealth = 100;  //Sätt spelarens hälsa till 100
+    }
+    
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.M) && CompareTag("Player"))
+        {
+            Respawn();
+        }
+    }
+    public void Respawn()
+    {
+        player.transform.position = respawnPoint.position;
+        Debug.Log("Hejhopp du ska flyttas");
+    }
+    */
 }

@@ -35,12 +35,10 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log(collision);
             Health health = collision.GetComponent<Health>();
             if (health != null) //Checking if it exists
             {
                 health.TakeDamage(enemyQualities.GetDamage());
-                Debug.Log(health);
             }
         }
     }
