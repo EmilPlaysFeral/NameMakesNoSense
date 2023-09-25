@@ -10,6 +10,10 @@ public class Collectible : MonoBehaviour
         if(health != null) //Whoever entered triggerfield have a health component or not check.
         {
             health.IncreaseHealth(25);
+            /*if(health.GetCurrentHealth() > 100)
+            {
+                health.SetHealth(100);
+            }*/
             Destroy(gameObject);
         }
     }

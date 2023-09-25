@@ -6,20 +6,32 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
     private float currentHealth = 100f;
+    private int currentRespawnPoint = 1;
 
     [SerializeField] private Image hpImage1;
     [SerializeField] private Image hpImage2;
     [SerializeField] private Image hpImage3;
     [SerializeField] private Image hpImage4;
 
-    [SerializeField] public Transform respawnPoint;
+    //[SerializeField] public Transform respawnPoint;
+    [SerializeField] public Transform[] respawnPoints; //Array to hold all of my respawnPoints
+
     [SerializeField] public GameObject player;
-    [SerializeField] private CharacterController controller; 
+    [SerializeField] private CharacterController controller;
 
     public void IncreaseHealth(float healthIncrease)
     {
         currentHealth += healthIncrease;
+        if(currentHealth > 100)
+        {
+            currentHealth = 100;
+        }
         Debug.LogError(currentHealth);
+    }
+
+    public void SetHealth(float healthValue) //för att sätta att över 100 är nejnej
+    {
+        currentHealth = healthValue;
     }
     public void TakeDamage(float damageTaken)
     {
@@ -35,7 +47,6 @@ public class Health : MonoBehaviour
             }
             if (CompareTag("Player")) //Om spelaren dör
             {
-                //Visa 0 liv
                 Debug.Log("Spelaren dog");
                 Respawn();
             }else
@@ -48,6 +59,14 @@ public class Health : MonoBehaviour
     public float GetCurrentHealth()
     {
         return currentHealth;
+    }
+
+    private void Start() //Remove when Respawn works again, currently just trying to Debug
+    {
+        foreach (Transform point in respawnPoints)
+        {
+            Debug.Log("Respawn Point Name: " + point.name);
+        }
     }
 
     private void Update()
@@ -90,9 +109,8 @@ public class Health : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.M) && CompareTag("Player"))
+        if (Input.GetKeyDown(KeyCode.M) && CompareTag("Player")) //Debug Respawn
         {
-
             Respawn();
         }
     }
@@ -106,10 +124,47 @@ public class Health : MonoBehaviour
     } */
     public void Respawn()
     {
-        player.GetComponent<CharacterController>().enabled = false;
-        player.transform.position = respawnPoint.position; //trying to spam put the player at the Respawn position
-        Debug.Log(respawnPoint.name);
-        player.GetComponent<CharacterController>().enabled = true;
-        currentHealth = 100;
-    }   
+        if (currentRespawnPoint <= respawnPoints.Length)
+        {
+            player.GetComponent<CharacterController>().enabled = false;
+            //player.transform.position = respawnPoint.position; //putting the player at the respawn location when it's only 1 location
+            //player.transform.position = respawnPoints[currentRespawnPoint - 1].position; //Maybe here is where it goes wrong? If i set to +1 it goes to another point
+            //Debug.Log("Respawned at " + respawnPoints[currentRespawnPoint - 1].name);
+            player.GetComponent<CharacterController>().enabled = true;
+            currentHealth = 100;
+        }
+        else
+        {
+            Debug.LogWarning("No more respawn points available.");
+        }
+    }
+
+    private void OnTriggerEnter(Collider other) //Doesn't currently work
+    {
+        if (other.CompareTag("RespawnTrigger"))
+        {
+            Debug.Log("Successful first collision with an Object called RespawnTrigger");
+            Debug.Log("Collided with object tagged as: " + other.tag); 
+
+            int newRespawnIndex = System.Array.IndexOf(respawnPoints, other.transform);
+
+            // Log the size of the respawnPoints array for debugging
+            Debug.Log("RespawnPoints Array Size: " + respawnPoints.Length);
+
+            if (newRespawnIndex >= 0)
+            {
+                // Update the current respawn point
+                currentRespawnPoint = newRespawnIndex + 1;
+                Debug.Log("Player will respawn at " + other.transform.name);
+
+                // For further debugging, log the current respawn point
+                Debug.Log("Current Respawn Point: " + currentRespawnPoint);
+            }
+            else
+            {
+                // Log when the trigger collider was not found in the respawnPoints array
+                Debug.LogWarning("Trigger collider not found in respawnPoints array."); //This is what constantly happens so it's within this if statement
+            }
+        }
+    }
 }
