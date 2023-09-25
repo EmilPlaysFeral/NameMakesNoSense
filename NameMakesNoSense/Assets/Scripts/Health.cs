@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
     private float currentHealth = 100f;
 
-    //[SerializeField] public Transform respawnPoint;
-    //[SerializeField] public GameObject player;
+    [SerializeField] private Image hpImage1;
+    [SerializeField] private Image hpImage2;
+    [SerializeField] private Image hpImage3;
+    [SerializeField] private Image hpImage4;
 
-    // Start is called before the first frame update
+    [SerializeField] public Transform respawnPoint;
+    [SerializeField] public GameObject player;
 
     public void IncreaseHealth(float healthIncrease)
     {
@@ -20,7 +24,8 @@ public class Health : MonoBehaviour
     {
         currentHealth -= damageTaken;
         Debug.LogError(currentHealth);
-        if(currentHealth <= 0)
+
+        if(currentHealth <= 0) //if someone with health drops below 0 HP
         {
             if(GetComponent<EnemyPatrol>() != null)
             {
@@ -29,8 +34,9 @@ public class Health : MonoBehaviour
             }
             if (CompareTag("Player")) //Om spelaren dör
             {
+                //Visa 0 liv
                 Debug.Log("Spelaren dog");
-                //PlayerDies();
+                PlayerDies();
             }else
             {
                 Destroy(gameObject); //Om fienden dör, förstår objektet
@@ -42,26 +48,63 @@ public class Health : MonoBehaviour
     {
         return currentHealth;
     }
-    /*
-    public void PlayerDies()
-    {
-        //Debug.Log("Spelaren dör");
-        //Sätt positionen på spelaren till en RespawnPoint
-        //player.transform.position = respawnPoint.transform.position;
-        //currentHealth = 100;  //Sätt spelarens hälsa till 100
-    }
-    
+
     private void Update()
     {
+        if (CompareTag("Player"))
+        {
+            if (currentHealth <= 75f)
+            {
+                hpImage1.gameObject.SetActive(false);
+            }
+            else
+            {
+                hpImage1.gameObject.SetActive(true);
+            }
+
+            if (currentHealth <= 50f)
+            {
+                hpImage2.gameObject.SetActive(false);
+            }
+            else
+            {
+                hpImage2.gameObject.SetActive(true);
+            }
+
+            if (currentHealth <= 25f)
+            {
+                hpImage3.gameObject.SetActive(false);
+            }
+            else
+            {
+                hpImage3.gameObject.SetActive(true);
+            }
+            if (currentHealth <= 0f)
+            {
+                hpImage4.gameObject.SetActive(false);
+            }
+            else
+            {
+                hpImage4.gameObject.SetActive(true);
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.M) && CompareTag("Player"))
         {
             Respawn();
         }
     }
+    
+    public void PlayerDies()
+    {
+        Debug.Log("Player dies");
+        //Sätt positionen på spelaren till en RespawnPoint // Put the position of the player at a RespawnPoint
+        player.transform.position = respawnPoint.transform.position;
+        currentHealth = 100;  //Sätt spelarens hälsa till 100
+    }
     public void Respawn()
     {
-        player.transform.position = respawnPoint.position;
-        Debug.Log("Hejhopp du ska flyttas");
-    }
-    */
+        player.transform.position = respawnPoint.position; //trying to spam put the player at the Respawn position
+        Debug.Log(respawnPoint.name);
+    }   
 }
