@@ -14,6 +14,7 @@ public class Health : MonoBehaviour
 
     [SerializeField] public Transform respawnPoint;
     [SerializeField] public GameObject player;
+    [SerializeField] private CharacterController controller; 
 
     public void IncreaseHealth(float healthIncrease)
     {
@@ -36,7 +37,7 @@ public class Health : MonoBehaviour
             {
                 //Visa 0 liv
                 Debug.Log("Spelaren dog");
-                PlayerDies();
+                Respawn();
             }else
             {
                 Destroy(gameObject); //Om fienden dör, förstår objektet
@@ -91,20 +92,24 @@ public class Health : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.M) && CompareTag("Player"))
         {
+
             Respawn();
         }
     }
     
-    public void PlayerDies()
+    /*public void PlayerDies()
     {
         Debug.Log("Player dies");
         //Sätt positionen på spelaren till en RespawnPoint // Put the position of the player at a RespawnPoint
         player.transform.position = respawnPoint.transform.position;
         currentHealth = 100;  //Sätt spelarens hälsa till 100
-    }
+    } */
     public void Respawn()
     {
+        player.GetComponent<CharacterController>().enabled = false;
         player.transform.position = respawnPoint.position; //trying to spam put the player at the Respawn position
         Debug.Log(respawnPoint.name);
+        player.GetComponent<CharacterController>().enabled = true;
+        currentHealth = 100;
     }   
 }
