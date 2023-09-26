@@ -109,7 +109,7 @@ public class Health : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.M) && CompareTag("Player")) //Debug Respawn
+        if (Input.GetKeyDown(KeyCode.R) && CompareTag("Player")) //Debug Respawn
         {
             Respawn();
         }
