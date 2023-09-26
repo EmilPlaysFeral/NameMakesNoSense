@@ -11,6 +11,9 @@ public class ThirdPersonMovement : MonoBehaviour
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
 
+    //public float boostedSpeed = 10f;
+    //public float speedCoolDown = 5f;
+
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
@@ -61,4 +64,19 @@ public class ThirdPersonMovement : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
     }
+    /*
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("SpeedBoost"))
+        {
+            speed = boostedSpeed; //Set the speed to Boost!
+            StartCoroutine("SpeedDuration"); // Says we want to do the SpeedDuration?
+        }
+    }
+
+    IEnumerator SpeedDuration() //Allows me to time something and do something after a certain time
+    {
+        yield return new WaitForSeconds(speedCoolDown); //Wait for speedCoolDown long then do the code after
+        speed = 6f; //Setting my speed to be 6 like the standard. I could add a variable here instead of 6f called normalSpeed or something to make it prettier and more usable elsewhere.
+    } */
 }

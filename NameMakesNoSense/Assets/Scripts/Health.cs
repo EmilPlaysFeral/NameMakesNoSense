@@ -128,7 +128,7 @@ public class Health : MonoBehaviour
         {
             player.GetComponent<CharacterController>().enabled = false;
             //player.transform.position = respawnPoint.position; //putting the player at the respawn location when it's only 1 location
-            //player.transform.position = respawnPoints[currentRespawnPoint - 1].position; //Maybe here is where it goes wrong? If i set to +1 it goes to another point
+            player.transform.position = respawnPoints[currentRespawnPoint - 1].position; //Maybe here is where it goes wrong? If i set to +1 it goes to another point
             //Debug.Log("Respawned at " + respawnPoints[currentRespawnPoint - 1].name);
             player.GetComponent<CharacterController>().enabled = true;
             currentHealth = 100;
