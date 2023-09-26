@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private MeshRenderer meshRenderer;
     //[SerializeField] private Color aggroColor;
     [SerializeField] private EnemyQualities enemyQualities;
+    [SerializeField] public GameObject enemyObj;
 
     void Start()
     {
