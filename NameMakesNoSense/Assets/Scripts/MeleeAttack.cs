@@ -23,7 +23,7 @@ public class MeleeAttack : MonoBehaviour
             if (!singRay.activeInHierarchy)
             {
                 StartCoroutine(ShowRay());
-                //voice.PlayOneShot(voiceClip); //Trigger the soundeffect once while showing the ray
+                voice.PlayOneShot(voiceClip); //Trigger the soundeffect once while showing the ray
             }
             //voice.Play(); //For ambience in new areas for example
             //voice.Pause(); //For ambience
