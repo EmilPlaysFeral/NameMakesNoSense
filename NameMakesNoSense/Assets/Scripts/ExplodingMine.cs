@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ExplodingMine : MonoBehaviour
 {
+    [SerializeField] private AudioSource voice;
+    [SerializeField] private AudioClip voiceClip;
+
     private void OnTriggerEnter(Collider other)
     {
         Health health = other.GetComponent<Health>(); //The other collider that produced the triggering. The thing that collided with me
@@ -11,7 +14,8 @@ public class ExplodingMine : MonoBehaviour
         {
             if (other.gameObject.tag == "Player")
             {
-                health.TakeDamage(50);  
+                health.TakeDamage(50);
+                voice.PlayOneShot(voiceClip);
             }
             Destroy(gameObject);
         }

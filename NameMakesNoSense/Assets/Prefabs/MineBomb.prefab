@@ -202,3 +202,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf1923d3fce35bf45a0256085f29a113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  voice: {fileID: 0}
+  voiceClip: {fileID: 8300000, guid: bb52ebf420011404ea005ac44ac31298, type: 3}

@@ -19,6 +19,9 @@ public class Health : MonoBehaviour
     [SerializeField] public GameObject player;
     [SerializeField] private CharacterController controller;
 
+    [SerializeField] private AudioSource voice;
+    [SerializeField] private AudioClip voiceClip;
+
     public void IncreaseHealth(float healthIncrease)
     {
         currentHealth += healthIncrease;
@@ -38,6 +41,11 @@ public class Health : MonoBehaviour
         currentHealth -= damageTaken;
         Debug.LogError(currentHealth);
 
+       /* if (this.CompareTag("Enemy"))
+        {
+            voice.PlayOneShot(voiceClip);
+        }*/
+
         if(currentHealth <= 0) //if someone with health drops below 0 HP
         {
             if(GetComponent<EnemyPatrol>() != null)
@@ -51,6 +59,7 @@ public class Health : MonoBehaviour
                 Respawn();
             }else
             {
+                voice.PlayOneShot(voiceClip);
                 Destroy(gameObject); //Om fienden dör, förstår objektet
             }
         }

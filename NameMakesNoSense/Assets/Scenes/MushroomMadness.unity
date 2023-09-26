@@ -728,6 +728,8 @@ MonoBehaviour:
   respawnPoints: []
   player: {fileID: 0}
   controller: {fileID: 0}
+  voice: {fileID: 0}
+  voiceClip: {fileID: 0}
 --- !u!65 &21636372
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3040,6 +3042,8 @@ MonoBehaviour:
   respawnPoints: []
   player: {fileID: 0}
   controller: {fileID: 0}
+  voice: {fileID: 874559270}
+  voiceClip: {fileID: 8300000, guid: 5986cbf87a31d1843b7516a09392a93e, type: 3}
 --- !u!65 &60319866
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10492,6 +10496,8 @@ MonoBehaviour:
   respawnPoints: []
   player: {fileID: 0}
   controller: {fileID: 0}
+  voice: {fileID: 0}
+  voiceClip: {fileID: 0}
 --- !u!65 &340694563
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12656,6 +12662,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8928262275972045089, guid: d8d3958bae45ad34ca1dc67d36a232c5, type: 3}
+      propertyPath: voice
+      value: 
+      objectReference: {fileID: 874559270}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18439,6 +18449,8 @@ MonoBehaviour:
   respawnPoints: []
   player: {fileID: 0}
   controller: {fileID: 0}
+  voice: {fileID: 874559270}
+  voiceClip: {fileID: 8300000, guid: ecb138127c49a8244aa5575c23097cb9, type: 3}
 --- !u!65 &637435497
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19198,6 +19210,8 @@ MonoBehaviour:
   respawnPoints: []
   player: {fileID: 0}
   controller: {fileID: 0}
+  voice: {fileID: 874559270}
+  voiceClip: {fileID: 8300000, guid: ecb138127c49a8244aa5575c23097cb9, type: 3}
 --- !u!65 &658892560
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25200,6 +25214,8 @@ MonoBehaviour:
   - {fileID: 1391403857}
   player: {fileID: 874559263}
   controller: {fileID: 0}
+  voice: {fileID: 0}
+  voiceClip: {fileID: 0}
 --- !u!65 &874559269
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25228,7 +25244,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 874559263}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 445cb8d66fdd283468c234e0ec0b48d4, type: 3}
@@ -27062,6 +27078,8 @@ MonoBehaviour:
   respawnPoints: []
   player: {fileID: 0}
   controller: {fileID: 0}
+  voice: {fileID: 874559270}
+  voiceClip: {fileID: 8300000, guid: ecb138127c49a8244aa5575c23097cb9, type: 3}
 --- !u!65 &921532796
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -40265,6 +40283,8 @@ MonoBehaviour:
   respawnPoints: []
   player: {fileID: 0}
   controller: {fileID: 0}
+  voice: {fileID: 874559270}
+  voiceClip: {fileID: 8300000, guid: ecb138127c49a8244aa5575c23097cb9, type: 3}
 --- !u!65 &1369161061
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -47358,6 +47378,8 @@ MonoBehaviour:
   respawnPoints: []
   player: {fileID: 0}
   controller: {fileID: 0}
+  voice: {fileID: 874559270}
+  voiceClip: {fileID: 8300000, guid: ecb138127c49a8244aa5575c23097cb9, type: 3}
 --- !u!54 &1624222512
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -52205,6 +52227,8 @@ MonoBehaviour:
   respawnPoints: []
   player: {fileID: 0}
   controller: {fileID: 0}
+  voice: {fileID: 874559270}
+  voiceClip: {fileID: 8300000, guid: ecb138127c49a8244aa5575c23097cb9, type: 3}
 --- !u!65 &1767573446
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -58184,6 +58208,8 @@ MonoBehaviour:
   respawnPoints: []
   player: {fileID: 0}
   controller: {fileID: 0}
+  voice: {fileID: 0}
+  voiceClip: {fileID: 0}
 --- !u!65 &1974240503
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -61533,6 +61559,8 @@ MonoBehaviour:
   respawnPoints: []
   player: {fileID: 0}
   controller: {fileID: 0}
+  voice: {fileID: 0}
+  voiceClip: {fileID: 0}
 --- !u!65 &2073606025
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -64570,6 +64598,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8928262275972045089, guid: d8d3958bae45ad34ca1dc67d36a232c5, type: 3}
+      propertyPath: voice
+      value: 
+      objectReference: {fileID: 874559270}
+    - target: {fileID: 8928262275972045089, guid: d8d3958bae45ad34ca1dc67d36a232c5, type: 3}
+      propertyPath: voiceClip
+      value: 
+      objectReference: {fileID: 8300000, guid: bb52ebf420011404ea005ac44ac31298, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -64787,6 +64823,8 @@ MonoBehaviour:
   respawnPoints: []
   player: {fileID: 0}
   controller: {fileID: 0}
+  voice: {fileID: 0}
+  voiceClip: {fileID: 0}
 --- !u!1001 &6264325125389578125
 PrefabInstance:
   m_ObjectHideFlags: 0
