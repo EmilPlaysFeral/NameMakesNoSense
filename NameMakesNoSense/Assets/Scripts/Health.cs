@@ -14,7 +14,7 @@ public class Health : MonoBehaviour
     [SerializeField] private Image hpImage4;
 
     //[SerializeField] public Transform respawnPoint;
-    [SerializeField] public Transform[] respawnPoints; //Array to hold all of my respawnPoints
+    [SerializeField] public Transform[] respawnPoints; //Array to hold all of my respawnPoints 
 
     [SerializeField] public GameObject player;
     [SerializeField] private CharacterController controller;
@@ -47,7 +47,7 @@ public class Health : MonoBehaviour
             }
             if (CompareTag("Player")) //Om spelaren dör
             {
-                Debug.Log("Spelaren dog");
+                //Debug.Log("Spelaren dog");
                 Respawn();
             }else
             {
@@ -61,13 +61,14 @@ public class Health : MonoBehaviour
         return currentHealth;
     }
 
+    /*
     private void Start() //Remove when Respawn works again, currently just trying to Debug
     {
         foreach (Transform point in respawnPoints)
         {
             Debug.Log("Respawn Point Name: " + point.name);
         }
-    }
+    } */
 
     private void Update()
     {
@@ -128,14 +129,15 @@ public class Health : MonoBehaviour
         {
             player.GetComponent<CharacterController>().enabled = false;
             //player.transform.position = respawnPoint.position; //putting the player at the respawn location when it's only 1 location
-            player.transform.position = respawnPoints[currentRespawnPoint - 1].position; //Maybe here is where it goes wrong? If i set to +1 it goes to another point
+            player.transform.position = respawnPoints[currentRespawnPoint - 1].position;
             //Debug.Log("Respawned at " + respawnPoints[currentRespawnPoint - 1].name);
             player.GetComponent<CharacterController>().enabled = true;
             currentHealth = 100;
+            //currentRespawnPoint++; //Nu alternerar jag via varje respawnPoint
         }
         else
         {
-            Debug.LogWarning("No more respawn points available.");
+            //Debug.LogWarning("No more respawn points available.");
         }
     }
 
@@ -143,27 +145,27 @@ public class Health : MonoBehaviour
     {
         if (other.CompareTag("RespawnTrigger"))
         {
-            Debug.Log("Successful first collision with an Object called RespawnTrigger");
-            Debug.Log("Collided with object tagged as: " + other.tag); 
+            //Debug.Log("Successful first collision with an Object called RespawnTrigger");
+            //Debug.Log("Collided with object tagged as: " + other.tag); 
 
             int newRespawnIndex = System.Array.IndexOf(respawnPoints, other.transform);
 
             // Log the size of the respawnPoints array for debugging
-            Debug.Log("RespawnPoints Array Size: " + respawnPoints.Length);
+            //Debug.Log("RespawnPoints Array Size: " + respawnPoints.Length);
 
             if (newRespawnIndex >= 0)
             {
                 // Update the current respawn point
                 currentRespawnPoint = newRespawnIndex + 1;
-                Debug.Log("Player will respawn at " + other.transform.name);
+                //Debug.Log("Player will respawn at " + other.transform.name);
 
                 // For further debugging, log the current respawn point
-                Debug.Log("Current Respawn Point: " + currentRespawnPoint);
+                //Debug.Log("Current Respawn Point: " + currentRespawnPoint);
             }
             else
             {
                 // Log when the trigger collider was not found in the respawnPoints array
-                Debug.LogWarning("Trigger collider not found in respawnPoints array."); //This is what constantly happens so it's within this if statement
+                //Debug.LogWarning("Trigger collider not found in respawnPoints array.");
             }
         }
     }
