@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
+    [SerializeField] public GameObject player;
     [SerializeField] private WayPointPath waypointPath;
     [SerializeField] private float speed;
 
@@ -57,5 +58,15 @@ public class MovingPlatform : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         other.transform.SetParent(null);
+        
+        /*
+        if (other.CompareTag("Player"))
+        {
+            Health playerHealth = other.GetComponent<Health>(); //Access health script on Player
+            if(playerHealth != null && playerHealth.GetCurrentHealth() < 0)
+            {
+                other.transform.SetParent(null);
+            }
+        }*/
     }
 }

@@ -57,7 +57,9 @@ public class Health : MonoBehaviour
             {
                 //Debug.Log("Spelaren dog");
                 Respawn();
-            }else
+                //player.transform.SetParent(null); Bort från de rörliga plattformarna
+            }
+            else
             {
                 voice.PlayOneShot(voiceClip);
                 Destroy(gameObject); //Om fienden dör, förstår objektet
