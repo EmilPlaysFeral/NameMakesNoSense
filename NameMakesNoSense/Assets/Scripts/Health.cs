@@ -29,7 +29,7 @@ public class Health : MonoBehaviour
         {
             currentHealth = 100;
         }
-        Debug.LogError(currentHealth);
+        //Debug.LogError(currentHealth); //skriv ut hälsan
     }
 
     public void SetHealth(float healthValue) //för att sätta att över 100 är nejnej
@@ -39,7 +39,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(float damageTaken)
     {
         currentHealth -= damageTaken;
-        Debug.LogError(currentHealth);
+        //Debug.LogError(currentHealth); //Kolla den som tog damage's HP alltså både spelaren och fienden
 
        /* if (this.CompareTag("Enemy"))
         {
