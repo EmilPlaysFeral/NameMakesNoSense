@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MushroomMadness.unity
+    guid: 5bcfce809be39354c91528b99851dccf
   m_configObjects: {}
