@@ -55,7 +55,7 @@ public class Health : MonoBehaviour
             }
             if (CompareTag("Player")) //Om spelaren dör
             {
-                //Debug.Log("Spelaren dog");
+                //Debug.Log("Spelaren dog");             
                 Respawn();
                 //player.transform.SetParent(null); Bort från de rörliga plattformarna
             }
@@ -138,6 +138,7 @@ public class Health : MonoBehaviour
     {
         if (currentRespawnPoint <= respawnPoints.Length)
         {
+            player.transform.SetParent(null);
             player.GetComponent<CharacterController>().enabled = false;
             //player.transform.position = respawnPoint.position; //putting the player at the respawn location when it's only 1 location
             player.transform.position = respawnPoints[currentRespawnPoint - 1].position;
