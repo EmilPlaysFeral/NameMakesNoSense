@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Collectible : MonoBehaviour
 {
+    [SerializeField] private AudioSource voice;
+    [SerializeField] private AudioClip voiceClip;
+
     private void OnTriggerEnter(Collider other)
     {
         Health health = other.GetComponent<Health>(); //The other collider that produced the triggering. The thing that collided with me
@@ -14,6 +17,7 @@ public class Collectible : MonoBehaviour
             {
                 health.SetHealth(100);
             }*/
+            voice.PlayOneShot(voiceClip);
             Destroy(gameObject);
         }
     }
