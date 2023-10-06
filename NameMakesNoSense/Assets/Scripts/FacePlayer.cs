@@ -14,7 +14,7 @@ public class FacePlayer : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {       
         Vector3 eulerAngles = transform.eulerAngles;
         transform.LookAt(player.transform.position);
         eulerAngles.y = transform.eulerAngles.y;
